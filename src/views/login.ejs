@@ -1,0 +1,52 @@
+<%- include('includes/head') %>
+<%- include('includes/nav') %>
+
+<div class="container">
+    <div class="row justify-content-center"> <!-- Adicionado justify-content-center -->
+        <div class="col-lg-8 my-3">
+            <h1 class="text-center">Login</h1>
+            <p class="text-center lead">Faça login ou crie uma conta abaixo</p>
+
+            <%- include('includes/messages') %>
+
+            <div class="row">
+                <div class="col-lg my-5">
+                    <h4>Criar conta</h4>
+
+                    <form class="form-cadastro" action="/login/register" method="post">
+                        <div class="form-group">
+                            <input type="hidden" name="_csrf" value=<%= csrfToken %>>
+                            <label for="register-email">Seu email</label>
+                            <input type="email" class="form-control" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="register-password">Sua senha</label>
+                            <input type="password" class="form-control" name="password">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Criar minha conta</button>
+                    </form>
+                </div>
+
+                <div class="col-lg my-5">
+                    <h4>Login</h4>
+
+                    <form class="form-login" action="/login/login" method="post">
+                        <div class="form-group">
+                            <input type="hidden" name="_csrf" value=<%= csrfToken %>>
+                            <label for="login-email">Seu email</label>
+                            <input type="email" class="form-control" id="login-email" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="login-password">Sua senha</label>
+                            <input type="password" class="form-control" id="login-password" name="password">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<%- include('includes/footer') %>
